@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 		else 
 			@user = current_user 
 			@bucketlist = BucketList.all
-			erb :'/items/bucketlist'
+			erb :'/bucketlist/bucketlist'
 		end 
 	end 
 
@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
 		if !logged_in?
 			redirect '/login' 
 		else 
-			erb :'/items/create_item'
+			erb :'/bucketlist/create_item'
 		end 
 	end 
 
