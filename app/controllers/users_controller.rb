@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 		else 
 			@user = User.create(username: params[:username], email: params[:email], password: params[:password])
 			@user.save
-			session[:user_id] = user.id 
+			session[:user_id] = @user.id 
 			redirect '/bucketlist'
 		end 
 	end
