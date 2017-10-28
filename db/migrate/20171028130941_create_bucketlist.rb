@@ -1,6 +1,6 @@
 class CreateBucketlist < ActiveRecord::Migration[5.1]
   def change
-  	create_table :bucketlist do |t|
+  	create_table :bucket_lists do |t|
   		t.string :item
   		t.string :notes
   		t.integer :user_id

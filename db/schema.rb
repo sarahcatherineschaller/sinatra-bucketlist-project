@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20171028130941) do
 
-  create_table "bucketlist", force: :cascade do |t|
+  create_table "bucket_lists", force: :cascade do |t|
     t.string "item"
     t.string "notes"
     t.integer "user_id"
