@@ -3,4 +3,9 @@
 
 <a href="/bucketlist/<%= @bucketlist.id %>/edit">Edit Item</a>
 
+<form method="POST" action="/bucketlist/<%= @bucketlist.id %>/delete">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Item">
+</form>
+
 <a href="/bucketlist">View your bucketlist</a>
