@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 			redirect '/login' 
 		else 
 			@user = current_user 
-			@items = Item.all
+			@bucketlist = BucketList.all
 			erb :'/items/bucketlist'
 		end 
 	end 
