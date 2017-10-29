@@ -55,6 +55,20 @@ class BucketlistsController < ApplicationController
 		end 
 	end
 
+	delete '/bucketlist/:id/delete' do 
+		if logged_in? 
+			@bucketlist_item = Bucketlist.find_by_id(params[:id])
+			if @bucketlist_item.user_id == session[:user_id]
+				@bucketlist_item.delete 
+				redirect '/bucketlist'
+			else 
+			    redirect '/bucketlist'
+			end 
+		else 
+			redirect '/login'
+		end 
+	end
+
 
 
 
