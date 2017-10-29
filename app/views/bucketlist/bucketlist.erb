@@ -1,9 +1,0 @@
-<h3>Welcome</h3>
-
-<% @bucketlist.each do |bucketlist_item| %>
-	<li><a href="/bucketlist/<%= bucketlist_item.id %>"><%= bucketlist_item.item %><br></li>
-	<% end %>
-
-
-
-<a href="/bucketlist/new">Add a new item to your bucketlist</a>
