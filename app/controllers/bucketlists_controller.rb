@@ -21,7 +21,7 @@ class BucketlistsController < ApplicationController
   	    if params[:item] == ""
 		  redirect '/bucketlist/new'
 	    else 
-		  @bucketlist_item = current_user.bucketlist.create(item: params[:item])
+		  @bucketlist_item = Bucketlist.create(item: params[:item])
 		  redirect "/bucketlist/#{@bucketlist_item.id}"
 	    end 
 	end
