@@ -1,0 +1,12 @@
+<h1>Welcome</h1><br><br>
+<h2>Bucketlist:</h2><br><br>
+
+<% @bucketlist.each do |bucketlist_item| %>
+	<div>
+	<%= bucketlist_item.item %>
+	</div>
+	<% end %>
+
+<a href="/bucketlist/new">Add an item to your bucketlist</a><br><br>
+
+<a href="/logout">Logout</a>

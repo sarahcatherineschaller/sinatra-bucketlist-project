@@ -1,12 +1,12 @@
 class BucketlistsController < ApplicationController 
 
 	get '/bucketlist' do 
-		if !logged_in?
-			redirect '/login' 
-		else 
+		if logged_in?
 			@bucketlist = Bucketlist.all 
 			erb :'/bucketlist/bucketlist'
-		end 
+		else
+			redirect '/login'
+		end
 	end
 
 	get '/bucketlist/new' do 
@@ -17,7 +17,7 @@ class BucketlistsController < ApplicationController
 		end 
 	end 
 
-	post '/bucketlist' 
+	post '/bucketlist' do
   	    if params[:item] == ""
 		  redirect '/bucketlist/new'
 	    else 
@@ -34,7 +34,6 @@ class BucketlistsController < ApplicationController
 			redirect '/login' 
 		end 
 	end
-
 
 
 end
