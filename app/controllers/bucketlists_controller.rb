@@ -26,6 +26,14 @@ class BucketlistsController < ApplicationController
 	    end 
 	end
 
+	get '/bucketlist/:id' do 
+		if logged_in?
+			@bucketlist_item = Bucketlist.find_by_id(params[:id])
+			erb :'/bucketlist/show_item' 
+		else 
+			redirect '/login' 
+		end 
+	end
 
 
 
