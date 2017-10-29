@@ -1,0 +1,7 @@
+<h1>Edit your bucketlist item:</h1>
+
+<form method="POST" action="/bucketlist/<%= @bucketlist_item.id %>/edit">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="text" name="item" value="<%= @bucketlist_item.item %>">
+  <input type="submit" value="Submit">
+</form>

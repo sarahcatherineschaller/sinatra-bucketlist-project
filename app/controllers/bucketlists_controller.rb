@@ -35,5 +35,31 @@ class BucketlistsController < ApplicationController
 		end 
 	end
 
+	get '/bucketlist/:id/edit' do 
+		if logged_in?
+			@bucketlist_item = Bucketlist.find_by_id(params[:id])
+			if @bucketlist_item.user_id == session[:user_id]
+				erb :'/bucketlist/edit_item'
+			else 
+				redirect '/bucketlist'
+			end 
+		else 
+			redirect '/login'
+		end 
+	end
+
+	patch '/bucketlist/:id' do 
+		if params[:item] == ""
+			redirect to "/bucketlist/#{params[:id]}/edit"
+		else 
+			@bucketlist_item = Bucketlist.find_by_id(params[:id])
+			@bucketlist_item.item = params[:item]
+			@bucketlist_item.save 
+			redirect "/bucketlist/#{@bucketlist_item.id}"
+		end 
+	end
+
+
+
 
 end
