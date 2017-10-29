@@ -3,10 +3,10 @@
 
 <% @bucketlist.each do |bucketlist_item| %>
 	<div>
-	<%= bucketlist_item.item %>
+	<li><a href="/bucketlist/<%= bucketlist_item.id %>"><%= bucketlist_item.item %></a>
 	</div>
 	<% end %>
-
+<br><br>
 <a href="/bucketlist/new">Add an item to your bucketlist</a><br><br>
 
 <a href="/logout">Logout</a>
