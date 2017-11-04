@@ -1,8 +1,9 @@
+
 class BucketlistsController < ApplicationController 
 
 	get '/bucketlist' do 
 		if logged_in?
-			@bucketlist = Bucketlist.all 
+			@bucketlist = current_user.bucketlists
 			erb :'/bucketlist/bucketlist'
 		else
 			redirect '/login'
