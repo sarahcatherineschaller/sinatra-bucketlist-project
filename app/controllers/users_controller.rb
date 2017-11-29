@@ -9,16 +9,28 @@ class UsersController < ApplicationController
 	end
 
 	post '/signup' do 
-		if !User.find_by(username: params[:username]).nil? 
-			redirect '/signup'
-		elsif
-			params[:username] == "" || params[:email] == "" || params[:password] == ""
-			redirect '/signup'
-		else 
+		@errors = {}
+		if params[:username] == "" 
+			@errors[:username] = "Username can't be blank!"
+		elsif User.find_by(username: params[:username])
+			@errors[:username] = "Username has already been taken!"
+		end
+
+		if params[:email] == ""
+			@errors[:email] = "Email can't be blank"
+		end 
+
+		if params[:password] == ""
+			@errors[:password] = "Password can't be blank"
+		end
+
+		if @errors.empty?
 			@user = User.create(username: params[:username], email: params[:email], password: params[:password])
 			@user.save
 			session[:user_id] = @user.id 
 			redirect '/bucketlist'
+		else 
+			erb :'users/signup'
 		end 
 	end
 
